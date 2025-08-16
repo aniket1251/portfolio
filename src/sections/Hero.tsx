@@ -69,7 +69,7 @@ export const HeroSection = () => {
             Building Intelligent Web Experiences
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg" >
-            A passionate full-stack developer who enjoys building applications that are fast, scalable, and delightful to use. Let’s connect and build something amazing together!
+            Hi, I’m Aniket — a passionate full-stack developer who builds applications that are fast, scalable, and delightful. Let’s connect and build something amazing together!
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
