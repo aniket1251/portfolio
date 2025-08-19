@@ -10,24 +10,12 @@ import grainImage from "@/assets/images/grain.jpg";
 const portfolioProjects = [
   {
     company: "Personal Project",
-    year: "2022",
-    title: "Amazone: Amazon Clone",
-    results: [
-      { title: "E-commerce flow with 100+ transactions" },
-      { title: "Redux state management with 35% fewer errors" },
-      { title: "Responsive UI by 40% better mobile" },
-    ],
-    link: "https://amazone-web.netlify.app",
-    image: amazoneImage,
-  },
-  {
-    company: "Personal Project",
     year: "2024",
     title: "DistilledFloatNet",
     results: [
       { title: "Real-time detection with GroundedSAM and YOLOv8" },
       { title: "Annotation accelerated 70% with GroundedSAM" },
-      { title: "Edge optimized with Knowledge Distillation 74.1 mAP50 & 78.74 FPS" },
+      { title: "Edge optimized with Knowledge Distillation with 74.1 mAP50 & 78.74 FPS" },
     ],
     link: "https://github.com/aniket1251/DistilledFloatNet",
     image: yoloImage,
@@ -43,6 +31,18 @@ const portfolioProjects = [
 ],
     link: "https://github.com/aniket1251/AcademiTrackX",
     image: acadTracxImage,
+  },
+    {
+    company: "Personal Project",
+    year: "2022",
+    title: "Amazone: Amazon Clone",
+    results: [
+      { title: "E-commerce flow with 100+ transactions" },
+      { title: "Redux state management with 35% fewer errors" },
+      { title: "Responsive UI by 40% better mobile" },
+    ],
+    link: "https://amazone-web.netlify.app",
+    image: amazoneImage,
   },
   {
     company: "Personal Project",
