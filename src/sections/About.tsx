@@ -207,8 +207,8 @@ export const AboutSection = () => {
             <CardHeader title="My Toolbox" description="Explore the technologies and tools I use to craft exceptional digital experiences."
             className=""
             />
-            <ToolboxItems techIcons={techIcons1} className=""/>
-            <ToolboxItems techIcons={techIcons2} className="mt-6"/>
+            <ToolboxItems techIcons={techIcons1} className="" itemsWrapperClassName="animate-move-left [animation-duration:30s]"/>
+            <ToolboxItems techIcons={techIcons2} className="mt-6" itemsWrapperClassName="animate-move-right [animation-duration:25s]"/>
           </Card>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
