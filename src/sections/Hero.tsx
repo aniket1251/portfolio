@@ -5,8 +5,18 @@ import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
+import { GoDownload } from "react-icons/go";
+
 
 export const HeroSection = () => {
+    const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Aniket-CV.pdf";
+    link.download = "Aniket-CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
@@ -71,17 +81,21 @@ export const HeroSection = () => {
             Building Intelligent Web Experiences
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg" >
-            Hi, I’m Aniket — a passionate full-stack developer who builds applications that are fast, scalable, and delightful. Let’s connect and build something amazing together!
+            Hi, I&apos;m Aniket — a passionate full-stack developer who builds applications that are fast, scalable, and delightful. Let&apos;s connect and build something amazing together!
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl z-20">
             <span className="font-semibold">Explore my work</span>
             <ArrowDown className="size-4"/>
           </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
-            <span>👋</span>
-            <span>{`Let's Connect`}</span>
+          <button 
+            onClick={handleDownload}
+            className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl z-20  transition-all duration-300 hover:bg-white/70 hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg">
+            <span>
+              <GoDownload size="20px"/>
+            </span>
+            <span>Download CV</span>
           </button>
         </div>
       </div>
