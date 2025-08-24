@@ -170,9 +170,10 @@ export const AboutSection = () => {
         />
         <div className="mt-20">
           <Card className="h-[320px]">
-            <CardHeader title="My Reads" description="Explore the books shaping my perspectives."/>
-            <div className="w-40 mx-auto mt-8">
-              <Image src={bookImage} alt="book"/>
+            <CardHeader title="My Reads" description="Explore the books shaping my perspectives."
+            />
+            <div className="w-40 mx-auto mt-2">
+              <Image src={bookImage} alt="book" className="mt-4"/>
             </div>
           </Card>
           <Card>
