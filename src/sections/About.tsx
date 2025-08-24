@@ -1,3 +1,4 @@
+"use-client"
 import SectionHeader from "@/components/SectionHeader";
 import { SiTypescript,
           SiExpress,
@@ -31,6 +32,8 @@ import CardHeader from "@/components/CardHeader";
 import ToolboxItems from "@/components/ToolboxItems";
 import { PiFileCppFill } from "react-icons/pi";
 import { PiFileSqlFill } from "react-icons/pi";
+import {motion} from 'framer-motion';
+import { useRef } from "react";
 
 
 const techIcons1 = [
@@ -182,6 +185,7 @@ const hobbies =[
 ]
 
 export const AboutSection = () => {
+  const constrainRef = useRef(null);
   return(
     <div className="py-20 lg:py-28">
       <div className="container">
@@ -211,15 +215,18 @@ export const AboutSection = () => {
           <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
             <CardHeader title="Beyond the code" description="Explore the books shaping my perspectives." className="px-6 py-6"
             />
-            <div className="relative flex-1">
+            <div className="relative flex-1" ref={constrainRef}>
               {hobbies.map((hobby,idx)=>(
-                <div key={idx} className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute" style={{
+                <motion.div key={idx} className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute" style={{
                   left:hobby.left,
                   top:hobby.top,
-                }}>
+                }}
+                drag
+                dragConstraints={constrainRef}
+                >
                   <span className="font-medium text-gray-950">{hobby.title}</span>
                   <span>{hobby.emoji}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </Card>
