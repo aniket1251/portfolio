@@ -1,10 +1,35 @@
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
+import FooterLink from "@/components/FooterLink";
 import {
   SiLeetcode,
   SiGeeksforgeeks,
   SiGithub,
   SiLinkedin
  } from "react-icons/si";
+
+
+const linkData = [
+  {
+    title:"Github",
+    url:"https://github.com/aniket1251",
+    icon:SiGithub,
+  },
+  {
+    title:"LinkedIn",
+    url:"https://www.linkedin.com/in/aniket1251/",
+    icon:SiLinkedin,
+  },
+  {
+    title:"LeetCode",
+    url:"https://leetcode.com/u/deCoder1205/",
+    icon:SiLeetcode,
+  },
+  {
+    title:"GfG",
+    url:"https://www.geeksforgeeks.org/user/ag1276fo/",
+    icon:SiGeeksforgeeks,
+  }
+]
 
 export const Footer = () => {
   return (
@@ -19,43 +44,14 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()}, All Rights Reserved.{" "}
           </div>{" "}
           <nav className="flex flex-col md:flex-row items-center gap-8">
-              <a
-                href="https://github.com/aniket1251"
-                className="inline-flex items-center gap-1.5 transition-all duration-300 ease-out hover:-translate-y-0.5 group"
-              >
-                {" "}
-                <span><SiGithub className="size-4" /></span>{" "}
-                <span className="font-semibold">Github</span>{" "}
-                <span><ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>{" "}
-              </a>
-              <a
-                href="https://www.linkedin.com/in/aniket1251/"
-                className="inline-flex items-center gap-1.5 transition-all duration-300 ease-out hover:-translate-y-0.5 group"
-              >
-                {" "}
-                <span><SiLinkedin className="size-4" /></span>{" "}
-                <span className="font-semibold">LinkedIn</span>{" "}
-                <span><ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>{" "}
-              </a>
-              <a
-                href="https://leetcode.com/u/deCoder1205/"
-                className="inline-flex items-center gap-1.5 transition-all duration-300 ease-out hover:-translate-y-0.5 group"
-              >
-                {" "}
-                <span><SiLeetcode className="size-4" /></span>{" "}
-                <span className="font-semibold">LeetCode</span>{" "}
-                <span><ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>{" "}
-              </a>
-              <a
-                href="https://www.geeksforgeeks.org/user/ag1276fo/"
-                target="_blank"
-                className="inline-flex items-center gap-1.5 transition-all duration-300 ease-out hover:-translate-y-0.5 group"
-              >
-                {" "}
-                <span><SiGeeksforgeeks className="size-4" /></span>{" "}
-                <span className="font-semibold">GfG</span>{" "}
-                <span><ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>{" "}
-              </a>
+            {linkData.map((data,idx)=>(
+              <FooterLink 
+                key={idx}
+                title={data.title}
+                url={data.url}
+                icon={data.icon}
+              />
+            ))}
           </nav>{" "}
         </div>{" "}
       </div>{" "}

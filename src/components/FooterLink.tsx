@@ -18,6 +18,7 @@ const FooterLink = ({
             <a
                 href={url}
                 className="inline-flex items-center gap-1.5 transition-all duration-300 ease-out hover:-translate-y-0.5 group"
+                target='_blank'
             >
                 <span><Icon className="size-4" /></span>
                 <span className="font-semibold">{title}</span>
