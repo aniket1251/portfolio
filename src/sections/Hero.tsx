@@ -6,6 +6,7 @@ import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import { GoDownload } from "react-icons/go";
+import { track } from "@vercel/analytics";
 
 
 export const HeroSection = () => {
@@ -16,6 +17,7 @@ export const HeroSection = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    track("Download CV", { file: "Aniket-CV.pdf" });
   };
 const handleScroll = (id: string) => {
   const element = document.getElementById(id);
