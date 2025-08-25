@@ -17,13 +17,19 @@ export const HeroSection = () => {
     link.click();
     document.body.removeChild(link);
   };
-    const handleClick = () => {
-    const link = document.createElement("a");
-    link.href = "#projects";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+const handleScroll = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const headerOffset = 10;
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
   return (
     <div id='home' className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
@@ -93,7 +99,7 @@ export const HeroSection = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <button 
-            onClick={handleClick}
+            onClick={() => handleScroll("projects")}
             className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl z-20 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg">
             <span className="font-semibold">Explore my work</span>
             <ArrowDown className="size-4"/>
