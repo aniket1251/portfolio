@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export const Header = () => {
 const handleScroll = (id: string) => {
   const element = document.getElementById(id);
@@ -13,6 +15,9 @@ const handleScroll = (id: string) => {
   }
 };
 
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, []);
 
 
   return (
