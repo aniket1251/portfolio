@@ -10,10 +10,52 @@ const calistoga = Calistoga({
   weight:["400"],
 });
 
+
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Created with the help of Frontend Tribe",
+  title: "Aniket Gautam | A Software Developer",
+  description:
+    "Portfolio of Aniket, a passionate Software Developer skilled in React, Next.js, Node.js, and deep learning. Explore my projects, skills, and contact me for collaborations.",
+  keywords: [
+    "Aniket",
+    "Full Stack Developer",
+    "Software Engineer",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Portfolio",
+    "Web Developer",
+    "MERN Developer",
+  ],
+  authors: [{ name: "Aniket Gautam" }],
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    url: "https://aniket-portfolio.com/",
+    title: "Aniket Gautam | A Software Developer",
+    description:
+      "Explore my projects and skills as a Software Developer. Let's build something amazing together.",
+    images: [
+      {
+        url: "https://aniket-portfolio.com/preview.png",
+        width: 1200,
+        height: 544,
+        alt: "Aniket Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aniket Gautam | A Software Developer",
+    description:
+      "Software Developer skilled in React, Next.js, Node.js, and more. Check out my portfolio.",
+    images: ["https://aniket-portfolio.com/preview.png"],
+  },
+  icons: {
+    icon: "/favicon10.ic0",
+  },
+  themeColor: "#10b981",
 };
+
 
 export default function RootLayout({
   children,
