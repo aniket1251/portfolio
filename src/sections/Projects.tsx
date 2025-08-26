@@ -55,7 +55,7 @@ const portfolioProjects = [
       { title: "Create and delete notes 30% faster" },
       { title: "Front-end optimized for 90% load speed" }
 ],
-    link: "adoring-stonebraker-0f304d.netlify.app/",
+    link: "https://adoring-stonebraker-0f304d.netlify.app/",
     image: keeperImage,
   },
 ];

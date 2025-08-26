@@ -96,7 +96,7 @@ const handleScroll = (id: string) => {
             Building Intelligent Web Experiences
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg" >
-            Hi, I&apos;m Aniket — a passionate full-stack developer who builds applications that are fast, scalable, and delightful. Let&apos;s connect and build something amazing together!
+            Hi, I&apos;m Aniket — a passionate software developer who builds applications that are fast, scalable, and delightful. Let&apos;s connect and build something amazing together!
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
