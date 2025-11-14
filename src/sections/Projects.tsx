@@ -3,7 +3,7 @@ import acadTracxImage from "@/assets/images/acad.png";
 import keeperImage from "@/assets/images/keeper.png";
 import yoloImage from "@/assets/images/yolo.png";
 import Image from "next/image";
-import CheckCircleIcon from "@/assets/icons/check-circle.svg";
+// import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import SectionHeader from "@/components/SectionHeader";
@@ -15,9 +15,9 @@ const portfolioProjects = [
     year: "2024",
     title: "DistilledFloatNet",
     results: [
-      { title: "Real-time detection with GroundedSAM and YOLOv8" },
-      { title: "Annotation accelerated 70% with GroundedSAM" },
-      { title: "Edge optimized with Knowledge Distillation with 74.1 mAP50 & 78.74 FPS" },
+      { title: "• Real-time detection with GroundedSAM and YOLOv8" },
+      { title: "• Annotation accelerated 70% with GroundedSAM" },
+      { title: "• Edge optimized with Knowledge Distillation with 74.1 mAP50 & 78.74 FPS" },
     ],
     link: "https://github.com/aniket1251/DistilledFloatNet",
     image: yoloImage,
@@ -27,9 +27,9 @@ const portfolioProjects = [
     year: "2023",
     title: "AcademiTrackX",
     results: [
-      { title: "CRUD and auth with 40% efficiency" },
-      { title: "File handling with 35% faster speed" },
-      { title: "Security with 30% stronger protection" }
+      { title: "• CRUD and auth with 40% efficiency" },
+      { title: "• File handling with 35% faster speed" },
+      { title: "• Security with 30% stronger protection" }
 ],
     link: "https://github.com/aniket1251/AcademiTrackX",
     image: acadTracxImage,
@@ -39,9 +39,9 @@ const portfolioProjects = [
     year: "2022",
     title: "Amazone: Amazon Clone",
     results: [
-      { title: "E-commerce flow with 100+ transactions" },
-      { title: "Redux state management with 35% fewer errors" },
-      { title: "Responsive UI by 40% better mobile" },
+      { title: "• E-commerce flow with 100+ transactions" },
+      { title: "• Redux state management with 35% fewer errors" },
+      { title: "• Responsive UI by 40% better mobile" },
     ],
     link: "https://amazone-web.netlify.app",
     image: amazoneImage,
@@ -51,9 +51,9 @@ const portfolioProjects = [
     year: "2022",
     title: "Keeper",
     results: [
-      { title: "React note-taking app with 100+ notes/day" },
-      { title: "Create and delete notes 30% faster" },
-      { title: "Front-end optimized for 90% load speed" }
+      { title: "• React note-taking app with 100+ notes/day" },
+      { title: "• Create and delete notes 30% faster" },
+      { title: "• Front-end optimized for 90% load speed" }
 ],
     link: "https://adoring-stonebraker-0f304d.netlify.app/",
     image: keeperImage,
@@ -99,7 +99,7 @@ export const ProjectsSection = () => {
                   className="flex gap-2 text-sm md:text-base text-white/50"
                   key={idx}
                   >
-                    <CheckCircleIcon className="size-5 md:size-6"/>
+                    {/* <CheckCircleIcon className="size-5 md:size-6"/> */}
                     <span>{result.title}</span>
                   </li>
                 ))}
