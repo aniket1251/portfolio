@@ -26,7 +26,8 @@ import { FaAws } from "react-icons/fa";
 import Card from "@/components/Card";
 import Image from "next/image";
 import bookImage from "@/assets/images/TAGR.png";
-import mapImage from "@/assets/images/chandausi.png";
+
+import blrMap from "@/assets/images/blr-map.jpeg"
 import smileImage from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
 import ToolboxItems from "@/components/ToolboxItems";
@@ -231,7 +232,7 @@ export const AboutSection = () => {
             </div>
           </Card>
           <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
-            <Image src={mapImage} alt="map" className="h-full w-full object-cover"/>
+            <Image src={blrMap} alt="map" className="h-full w-full object-cover"/>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-10 rounded-full after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:outline-offset-2 after:rounded-full after:outline-gray-950/30">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:1.5s]"></div>
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10"></div>

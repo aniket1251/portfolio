@@ -21,10 +21,13 @@ useEffect(() => {
 
 
   return (
-  <div className="flex justify-center items-center fixed top-3 w-full z-10">
+  <div className="flex justify-center items-center fixed top-3 w-full z-10 ">
     <nav className="flex p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur">
       <button onClick={() => handleScroll("home")} className="nav-item">
         Home
+      </button>
+      <button onClick={() => handleScroll("experiences")} className="nav-item">
+        Experiences
       </button>
       <button onClick={() => handleScroll("projects")} className="nav-item">
         Projects

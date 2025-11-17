@@ -65,7 +65,7 @@ export const ProjectsSection = () => {
     <section id="projects" className="pb-16 lg:py-24">
       <div className="container">
         <SectionHeader
-          title="Real-World Results"
+          title="WHAT I&apos;VE BUILT"
           eyebrow="Featured Projects"
           description="See how I transformed concepts into engaging digital experiences."
         />
