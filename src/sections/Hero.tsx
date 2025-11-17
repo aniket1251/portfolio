@@ -88,7 +88,7 @@ const handleScroll = (id: string) => {
             <div className="bg-green-500 size-2.5 rounded-full relative">
                 <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
             </div>
-            <div>Available for new projects</div>
+            <div>Open to work</div>
           </div>
         </div>
         <div className="max-w-lg mx-auto">

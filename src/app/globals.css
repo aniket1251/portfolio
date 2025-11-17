@@ -16,7 +16,7 @@
 
 @media (max-width: 768px) {
     .nav-item {
-      @apply px-2 py-1 text-[13px];
+      @apply px-2 py-1 text-[13px] font-semibold;
     }
   }
 
