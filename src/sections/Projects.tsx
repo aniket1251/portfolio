@@ -3,6 +3,7 @@ import acadTracxImage from "@/assets/images/acad.png";
 import keeperImage from "@/assets/images/keeper.png";
 import yoloImage from "@/assets/images/yolo.png";
 import habifulImage from "@/assets/images/habiful.png";
+import OPDImage from "@/assets/images/OPDImage.png";
 import Image from "next/image";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -10,6 +11,24 @@ import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
 
 const portfolioProjects = [
+  {
+    company: "Personal Project",
+    year: "2026",
+    title: "OPD Token Allocation Engine",
+    results: [
+      {
+        title:
+          "• Built priority-based scheduling system handling 200+ patients daily",
+      },
+      {
+        title:
+          "• Ensured zero overbooking with ACID transactions and safe concurrency",
+      },
+      { title: "• Designed fair O(n) algorithms for emergency reallocation" },
+    ],
+    link: "https://github.com/aniket1251/opd-token-allocation-engine",
+    image: OPDImage,
+  },
   {
     company: "Personal Project",
     year: "2025",
