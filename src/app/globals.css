@@ -2,26 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    .nav-item{
-        @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300;
-    }
+@layer base {
+  html {
+    scroll-padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    .hero-ring{
-        @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
-    }
+  body {
+    overflow-x: hidden;
+  }
 
+  ::selection {
+    background-color: rgba(255, 107, 61, 0.2);
+    color: #1c1917;
+  }
 
+  .nav-item {
+    @apply px-4 py-1.5 rounded-full text-warm-800/60 text-sm font-semibold hover:text-warm-900 transition-all duration-300;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-coral-400/50 rounded-lg;
+  }
+
+  /* Smooth image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
 }
 
 @media (max-width: 768px) {
-    .nav-item {
-      @apply px-2 py-1 text-[13px] font-semibold;
-    }
+  .nav-item {
+    @apply px-2.5 py-1 text-[13px] font-semibold;
   }
+}
 
-@layer utilities{
-    .container {
-        @apply lg:max-w-5xl;
-    }
+@layer utilities {
+  .container {
+    @apply lg:max-w-5xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf8f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff6b3d, #fbbf24);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #f04e20, #f59e0b);
+}
+
+/* Hide default cursor on desktop for custom cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Subtle dot pattern background */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 107, 61, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Card flip utilities */
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.perspective-\[600px\] {
+  perspective: 600px;
+}
+
+/* Hobby item mobile optimization */
+@media (max-width: 767px) {
+  .hobby-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+  }
+}
+
+/* Hide scrollbar for nav */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -1,24 +1,13 @@
-import React from 'react'
-import { IconType } from 'react-icons';
+import React from "react";
+import { IconType } from "react-icons";
 
-interface IconProps{
-    icon: IconType;
-    label:string;
-}
-
-const TechIcon = ({icon:Icon, label}:IconProps) => {
+const TechIcon = ({ icon: Icon, label, color }: { icon: IconType; label: string; color?: string }) => {
   return (
-        <>
-            {Icon && <Icon className='size-10 fill-[url(#tech-icon-gradient)]'/>}
-            <span className='font-semibold'>{label}</span>
-            <svg className='size-0 absolute'>
-                <linearGradient id='tech-icon-gradient'>
-                    <stop offset="0%" stopColor='rgb(110 231 183)'/>
-                    <stop offset="100%" stopColor='rgb(56 189 248)'/>
-                </linearGradient>
-            </svg>
-        </>
-  )
-}
+    <>
+      {Icon && <Icon className="size-5 md:size-7" style={color ? { color } : undefined} />}
+      <span className="font-medium text-warm-800 text-[11px] md:text-sm whitespace-nowrap">{label}</span>
+    </>
+  );
+};
 
 export default TechIcon;

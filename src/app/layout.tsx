@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
-import {Inter , Calistoga } from "next/font/google";
+import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { Analytics } from "@vercel/analytics/react";
+import { SmoothScroll, ScrollProgress } from "@/components/SmoothScroll";
+import { CustomCursor } from "@/components/CustomCursor";
 
-const inter = Inter({subsets: ["latin"], variable: "--font-sans"});
+
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
-  subsets:["latin"],
-  variable:"--font-serif",
-  weight:["400"],
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400"],
 });
 
-
 export const metadata: Metadata = {
-  title: "Aniket Gautam | A Software Developer",
+  title: "Aniket Gautam | Software Developer",
   description:
-    "Portfolio of Aniket, a passionate Software Developer skilled in React, Next.js, Node.js, and deep learning. Explore my projects, skills, and contact me for collaborations.",
+    "Portfolio of Aniket Gautam, a passionate Software Developer skilled in React, Next.js, Node.js, and deep learning. Explore my projects, skills, and get in touch.",
   keywords: [
-    "Aniket",
+    "Aniket Gautam",
     "Full Stack Developer",
     "Software Engineer",
     "React",
@@ -25,16 +28,15 @@ export const metadata: Metadata = {
     "Node.js",
     "Portfolio",
     "Web Developer",
-    "MERN Developer",
   ],
   authors: [{ name: "Aniket Gautam" }],
   robots: "index, follow",
   openGraph: {
     type: "website",
     url: "https://aniket-portfolio.com/",
-    title: "Aniket Gautam | A Software Developer",
+    title: "Aniket Gautam | Software Developer",
     description:
-      "Explore my projects and skills as a Software Developer. Let's build something amazing together.",
+      "Explore my projects and skills as a Software Developer.",
     images: [
       {
         url: "https://aniket-portfolio.com/preview.png",
@@ -46,17 +48,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aniket Gautam | A Software Developer",
+    title: "Aniket Gautam | Software Developer",
     description:
-      "Software Developer skilled in React, Next.js, Node.js, and more. Check out my portfolio.",
+      "Software Developer skilled in React, Next.js, Node.js, and more.",
     images: ["https://aniket-portfolio.com/preview.png"],
   },
   icons: {
-    icon: "/favicon10.ic0",
+    icon: "/favicon.ico",
   },
-  themeColor: "#10b981",
 };
 
+export const viewport = {
+  themeColor: "#ff6b3d",
+};
 
 export default function RootLayout({
   children,
@@ -65,10 +69,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={twMerge(inter.variable, calistoga.variable,"bg-gray-900 text-white antialiased font-sans")}>
-        {children}
+      <body
+        className={twMerge(
+          inter.variable,
+          calistoga.variable,
+          "bg-warm-50 text-warm-900 antialiased font-sans"
+        )}
+      >
+        <CustomCursor />
+        <SmoothScroll>
+          <ScrollProgress />
+          {children}
+        </SmoothScroll>
         <Analytics />
-        </body>
+      </body>
     </html>
   );
 }
