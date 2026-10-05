@@ -5,7 +5,7 @@ import acadTracxImage from "@/assets/images/acad.png";
 import keeperImage from "@/assets/images/keeper.png";
 import yoloImage from "@/assets/images/yolo.png";
 import habifulImage from "@/assets/images/habiful.png";
-import OPDImage from "@/assets/images/OPDImage.png";
+import outlyImage from "@/assets/images/outly.png";
 import Image from "next/image";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import SectionHeader from "@/components/SectionHeader";
@@ -21,15 +21,63 @@ import { useRef, useEffect, useState } from "react";
 import { IoCarSportSharp } from "react-icons/io5";
 
 const projects = [
-  { year: "2026", title: "OPD Token Engine", desc: "Smart hospital scheduling for 200+ daily patients", tags: ["Node.js", "PostgreSQL", "System Design"], link: "https://github.com/aniket1251/opd-token-allocation-engine", image: OPDImage },
-  { year: "2025", title: "Habiful", desc: "End-to-end property rental platform on AWS", tags: ["Next.js", "AWS", "PostgreSQL"], link: "https://github.com/aniket1251/habiful", image: habifulImage },
-  { year: "2024", title: "DistilledFloatNet", desc: "Edge-optimized real-time object detection", tags: ["YOLOv8", "Deep Learning", "Python"], link: "https://github.com/aniket1251/DistilledFloatNet", image: yoloImage },
-  { year: "2023", title: "AcademiTrackX", desc: "Academic records made 40% more efficient", tags: ["Node.js", "MongoDB", "Express"], link: "https://github.com/aniket1251/AcademiTrackX", image: acadTracxImage },
-  { year: "2022", title: "Amazone Clone", desc: "Full e-commerce flow with React and Redux", tags: ["React", "Redux", "Firebase"], link: "https://amazone-web.netlify.app", image: amazoneImage },
-  { year: "2022", title: "Keeper", desc: "Clean note-taking app, my React origin story", tags: ["React", "Hooks"], link: "https://adoring-stonebraker-0f304d.netlify.app/", image: keeperImage },
+  {
+    year: "2026",
+    title: "Outly",
+    desc: "Cold outreach email platform for job seekers",
+    tags: ["React.js", "Node.js", "PostgreSQL", "System Design"],
+    link: "https://github.com/aniket1251/outly",
+    image: outlyImage,
+  },
+  {
+    year: "2025",
+    title: "Habiful",
+    desc: "End-to-end property rental platform on AWS",
+    tags: ["Next.js", "AWS", "PostgreSQL"],
+    link: "https://github.com/aniket1251/habiful",
+    image: habifulImage,
+  },
+  {
+    year: "2024",
+    title: "DistilledFloatNet",
+    desc: "Edge-optimized real-time object detection",
+    tags: ["YOLOv8", "Deep Learning", "Python"],
+    link: "https://github.com/aniket1251/DistilledFloatNet",
+    image: yoloImage,
+  },
+  {
+    year: "2023",
+    title: "AcademiTrackX",
+    desc: "Academic records made 40% more efficient",
+    tags: ["Node.js", "MongoDB", "Express"],
+    link: "https://github.com/aniket1251/AcademiTrackX",
+    image: acadTracxImage,
+  },
+  {
+    year: "2022",
+    title: "Amazone Clone",
+    desc: "Full e-commerce flow with React and Redux",
+    tags: ["React", "Redux", "Firebase"],
+    link: "https://amazone-web.netlify.app",
+    image: amazoneImage,
+  },
+  {
+    year: "2022",
+    title: "Keeper",
+    desc: "Clean note-taking app, my React origin story",
+    tags: ["React", "Hooks"],
+    link: "https://adoring-stonebraker-0f304d.netlify.app/",
+    image: keeperImage,
+  },
 ];
 
-const ProjectStop = ({ project, idx }: { project: typeof projects[0]; idx: number }) => {
+const ProjectStop = ({
+  project,
+  idx,
+}: {
+  project: (typeof projects)[0];
+  idx: number;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
   const isLeft = idx % 2 === 0;
@@ -42,10 +90,26 @@ const ProjectStop = ({ project, idx }: { project: typeof projects[0]; idx: numbe
   // Match the avatar's slow spring so cards move in sync with it
   const springConfig = { stiffness: 30, damping: 25 };
 
-  const rawScale = useTransform(scrollYProgress, [0, 0.35, 0.5, 0.65, 1], [0.8, 1, 1, 1, 0.8]);
-  const rawOpacity = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 1, 1, 1, 0]);
-  const rawXLeft = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [-120, 0, 0, 0, -120]);
-  const rawXRight = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [120, 0, 0, 0, 120]);
+  const rawScale = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.5, 0.65, 1],
+    [0.8, 1, 1, 1, 0.8],
+  );
+  const rawOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.5, 0.75, 1],
+    [0, 1, 1, 1, 0],
+  );
+  const rawXLeft = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.5, 0.7, 1],
+    [-120, 0, 0, 0, -120],
+  );
+  const rawXRight = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.5, 0.7, 1],
+    [120, 0, 0, 0, 120],
+  );
 
   const scale = useSpring(rawScale, springConfig);
   const cardOpacity = useSpring(rawOpacity, springConfig);
@@ -56,7 +120,10 @@ const ProjectStop = ({ project, idx }: { project: typeof projects[0]; idx: numbe
     <div ref={ref} className="relative flex items-center">
       {isLeft ? (
         <>
-          <motion.div className="flex-1 hidden md:block" style={{ scale, opacity: cardOpacity, x: xLeft }}>
+          <motion.div
+            className="flex-1 hidden md:block"
+            style={{ scale, opacity: cardOpacity, x: xLeft }}
+          >
             <CardContent project={project} isInView={isInView} align="right" />
           </motion.div>
           <div className="shrink-0 w-12 md:w-16" />
@@ -66,21 +133,48 @@ const ProjectStop = ({ project, idx }: { project: typeof projects[0]; idx: numbe
         <>
           <div className="flex-1 hidden md:block" />
           <div className="shrink-0 w-12 md:w-16" />
-          <motion.div className="flex-1 hidden md:block" style={{ scale, opacity: cardOpacity, x: xRight }}>
+          <motion.div
+            className="flex-1 hidden md:block"
+            style={{ scale, opacity: cardOpacity, x: xRight }}
+          >
             <CardContent project={project} isInView={isInView} align="left" />
           </motion.div>
         </>
       )}
-      <motion.div className="flex-1 md:hidden ml-2" style={{ scale, opacity: cardOpacity, x: useSpring(useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [40, 0, 0, 0, 40]), springConfig) }}>
+      <motion.div
+        className="flex-1 md:hidden ml-2"
+        style={{
+          scale,
+          opacity: cardOpacity,
+          x: useSpring(
+            useTransform(
+              scrollYProgress,
+              [0, 0.3, 0.5, 0.7, 1],
+              [40, 0, 0, 0, 40],
+            ),
+            springConfig,
+          ),
+        }}
+      >
         <CardContent project={project} isInView={isInView} align="left" />
       </motion.div>
     </div>
   );
 };
 
-const CardContent = ({ project, isInView, align }: { project: typeof projects[0]; isInView: boolean; align: "left" | "right" }) => (
+const CardContent = ({
+  project,
+  isInView,
+  align,
+}: {
+  project: (typeof projects)[0];
+  isInView: boolean;
+  align: "left" | "right";
+}) => (
   <a href={project.link} target="_blank" className="block group">
-    <div className={`bg-white rounded-2xl border border-warm-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-coral-100/60 transition-all duration-500 hover:-translate-y-1 ${align === "right" ? "md:mr-6" : "md:ml-6"}`}>
+    <div
+      className={`bg-white rounded-2xl border border-warm-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-coral-100/60 transition-all duration-500 hover:-translate-y-1 ${align === "right" ? "md:mr-6" : "md:ml-6"}`}
+    >
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image
           src={project.image}
@@ -95,8 +189,14 @@ const CardContent = ({ project, isInView, align }: { project: typeof projects[0]
         </div>
       </div>
       <div className="p-4 md:p-5">
-        <span className="text-xs font-bold text-coral-500 bg-coral-50 px-2.5 py-0.5 rounded-full">{project.year}</span>
-        <h3 className="font-serif text-lg md:text-xl text-warm-900 group-hover:text-coral-600 transition-colors duration-300 mt-2">{project.title}</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-serif text-lg md:text-xl text-warm-900 group-hover:text-coral-600 transition-colors duration-300">
+            {project.title}
+          </h3>
+          <span className="text-[11px] font-bold text-coral-500 bg-coral-50 px-2 py-0.5 rounded-full">
+            {project.year}
+          </span>
+        </div>
         <p className="text-sm text-warm-800/50 mt-1">{project.desc}</p>
         <div className="flex flex-wrap gap-1.5 mt-3">
           {project.tags.map((tag, tIdx) => (
@@ -130,7 +230,7 @@ function generateZigzagPath(count: number) {
     const yStart = i * CURVE_HEIGHT;
     const yMid = yStart + CURVE_HEIGHT * 0.5;
     const yEnd = yStart + CURVE_HEIGHT;
-    d += ` C ${i === 0 ? CENTER_X : (i % 2 === 0 ? LEFT_X : RIGHT_X)},${yMid} ${targetX},${yMid} ${targetX},${yEnd}`;
+    d += ` C ${i === 0 ? CENTER_X : i % 2 === 0 ? LEFT_X : RIGHT_X},${yMid} ${targetX},${yMid} ${targetX},${yEnd}`;
   }
   // End curve back to center
   const lastX = count % 2 === 0 ? LEFT_X : RIGHT_X;
@@ -146,17 +246,27 @@ export const ProjectsSection = () => {
   const [avatarPos, setAvatarPos] = useState({ x: 50, y: 0 });
   const [mobileCarTop, setMobileCarTop] = useState("0%");
 
-  const { d: zigzagPath, height: svgHeight } = generateZigzagPath(projects.length);
+  const { d: zigzagPath, height: svgHeight } = generateZigzagPath(
+    projects.length,
+  );
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start 80%", "end 30%"],
   });
 
-  const roadProgress = useSpring(scrollYProgress, { stiffness: 40, damping: 30 });
-  const avatarSpring = useSpring(scrollYProgress, { stiffness: 30, damping: 25 });
+  const roadProgress = useSpring(scrollYProgress, {
+    stiffness: 40,
+    damping: 30,
+  });
+  const avatarSpring = useSpring(scrollYProgress, {
+    stiffness: 30,
+    damping: 25,
+  });
 
-  useEffect(() => { setPathEl(pathRef.current); }, []);
+  useEffect(() => {
+    setPathEl(pathRef.current);
+  }, []);
 
   useEffect(() => {
     const unsub = avatarSpring.on("change", (v) => {
@@ -184,8 +294,19 @@ export const ProjectsSection = () => {
       <div ref={sectionRef} className="container mt-10 relative">
         {/* SVG zigzag road — desktop only */}
         <div className="absolute hidden md:block left-1/2 -translate-x-[50px] top-0 bottom-0 w-[100px] pointer-events-none">
-          <svg viewBox={`0 0 100 ${svgHeight}`} fill="none" className="w-full h-full" preserveAspectRatio="none">
-            <path d={zigzagPath} stroke="rgba(255,171,148,0.12)" strokeWidth="4" strokeLinecap="round" fill="none" />
+          <svg
+            viewBox={`0 0 100 ${svgHeight}`}
+            fill="none"
+            className="w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path
+              d={zigzagPath}
+              stroke="rgba(255,171,148,0.12)"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+            />
             <motion.path
               ref={pathRef}
               d={zigzagPath}
@@ -223,7 +344,11 @@ export const ProjectsSection = () => {
           >
             <motion.div
               animate={{ y: [0, -2, 0] }}
-              transition={{ duration: 0.4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 0.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
               <div className="w-11 h-11 md:w-12 md:h-12 flex items-center justify-center drop-shadow-md">
                 <IoCarSportSharp className="w-8 h-8 md:w-10 md:h-10 text-warm-900" />
@@ -239,7 +364,8 @@ export const ProjectsSection = () => {
             className="absolute left-0 top-0 bottom-0 w-[2px] origin-top"
             style={{
               scaleY: roadProgress,
-              background: "linear-gradient(to bottom, #ff6b3d, #fbbf24, #ff6b3d)",
+              background:
+                "linear-gradient(to bottom, #ff6b3d, #fbbf24, #ff6b3d)",
             }}
           />
           {/* Mobile car */}
@@ -249,7 +375,11 @@ export const ProjectsSection = () => {
           >
             <motion.div
               animate={{ y: [0, -2, 0] }}
-              transition={{ duration: 0.4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 0.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
               <div className="w-8 h-8 flex items-center justify-center drop-shadow-md">
                 <IoCarSportSharp className="w-6 h-6 text-warm-900" />
@@ -260,7 +390,7 @@ export const ProjectsSection = () => {
 
         {/* Project stops */}
         <div className="flex flex-col gap-20 md:gap-36 relative z-10 pl-12 md:pl-0">
-          {projects.map((project, idx) => (
+          {projects.toReversed().map((project, idx) => (
             <ProjectStop key={project.title} project={project} idx={idx} />
           ))}
         </div>

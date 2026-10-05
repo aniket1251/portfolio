@@ -1,17 +1,34 @@
 "use client";
 
 import SectionHeader from "@/components/SectionHeader";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import {
+  AnimatedSection,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/AnimatedSection";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const journey = [
   {
+    name: "Guestara",
+    period: "June 2026 - Sept 2026",
+    role: "ReactJS Intern",
+    type: "Remote",
+    emoji: "🌱",
+    highlights: [
+      "Designed three config-driven, multi-step registration forms in React with multi-guest support and draft persistence.",
+      "Built whole-config draft tracking that diffs live state against the server snapshot to flag unsaved changes.",
+      "Delivered an end-to-end custom-fields system with reusable components and per-type validation for admin-defined questions.",
+      "Cut dashboard initial load ~19 MB → ~4 MB with route-based code splitting.",
+    ],
+  },
+  {
     name: "Kalam Solutions",
     period: "May 2024 - July 2024",
     role: "Software Developer Intern",
     type: "Remote",
-    emoji: "\u{1F680}",
+    emoji: "🚿",
     highlights: [
       "Shipped 5+ backend API features with Node.js and Express, cutting response times by 20-25%",
       "Connected 10+ REST endpoints to the frontend, powering a platform with 300+ active users",
@@ -20,10 +37,10 @@ const journey = [
   },
   {
     name: "CoachBudy",
-    period: "March 2022 - July 2022",
+    period: "Mar 2022 - July 2022",
     role: "Full-Stack Developer Intern",
     type: "Remote",
-    emoji: "\u{1F331}",
+    emoji: "🥔",
     highlights: [
       "Crafted responsive dashboards with React and Tailwind CSS that students actually loved using",
       "Built 15+ RESTful APIs powering student, coaching, and admin workflows end-to-end",
@@ -37,7 +54,10 @@ const TimelineDot = ({ emoji }: { emoji: string }) => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div ref={ref} className="absolute left-6 md:left-1/2 -translate-x-1/2 flex z-10">
+    <div
+      ref={ref}
+      className="absolute left-6 md:left-1/2 -translate-x-1/2 flex z-10"
+    >
       <motion.div
         className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-white border-2 border-coral-200 flex items-center justify-center text-sm md:text-xl shadow-sm"
         initial={{ scale: 0, opacity: 0 }}
@@ -59,6 +79,8 @@ export const ExperiencesSection = () => {
   });
   const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
+  const reversedJourney = journey.toReversed();
+
   return (
     <section id="journey" className="py-12 lg:py-16 relative">
       <div className="absolute inset-0 dot-pattern -z-10" />
@@ -78,31 +100,53 @@ export const ExperiencesSection = () => {
             className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px origin-top"
             style={{
               scaleY,
-              background: "linear-gradient(to bottom, #ffab94, #fbbf24, #ffab94)",
+              background:
+                "linear-gradient(to bottom, #ffab94, #fbbf24, #ffab94)",
             }}
           />
 
           <div className="flex flex-col gap-12 md:gap-16">
-            {journey.map((item, idx) => (
-              <AnimatedSection key={idx} delay={idx * 0.2} direction={idx % 2 === 0 ? "left" : "right"}>
-                <div className={`flex flex-col md:flex-row items-start gap-6 md:gap-12 ${idx % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+            {reversedJourney.map((item, idx) => (
+              <AnimatedSection
+                key={idx}
+                delay={idx * 0.2}
+                direction={idx % 2 === 0 ? "left" : "right"}
+              >
+                <div
+                  className={`flex flex-col md:flex-row items-start gap-6 md:gap-12 ${idx % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+                >
                   <TimelineDot emoji={item.emoji} />
 
-                  <div className={`ml-10 md:ml-0 md:w-[calc(50%-3rem)] ${idx % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
+                  <div
+                    className={`ml-10 md:ml-0 md:w-[calc(50%-3rem)] ${idx % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}
+                  >
                     <div className="bg-white rounded-2xl p-6 md:p-8 border border-warm-200/80 shadow-sm hover:shadow-xl hover:shadow-coral-100/60 hover:-translate-y-1 transition-all duration-500 group/card">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-semibold text-coral-500 uppercase tracking-wider">{item.name}</span>
+                        <span className="text-sm font-semibold text-coral-500 uppercase tracking-wider">
+                          {item.name}
+                        </span>
                         <span className="text-warm-800/30">&bull;</span>
-                        <span className="text-sm text-warm-800/50">{item.type}</span>
+                        <span className="text-sm text-warm-800/50">
+                          {item.type}
+                        </span>
                       </div>
-                      <h3 className="font-serif text-xl md:text-2xl text-warm-900 mt-1 group-hover/card:text-coral-600 transition-colors duration-300">{item.role}</h3>
-                      <p className="text-sm text-warm-800/40 mt-1">{item.period}</p>
+                      <h3 className="font-serif text-xl md:text-2xl text-warm-900 mt-1 group-hover/card:text-coral-600 transition-colors duration-300">
+                        {item.role}
+                      </h3>
+                      <p className="text-sm text-warm-800/40 mt-1">
+                        {item.period}
+                      </p>
                       <hr className="border-warm-100 my-4" />
-                      <StaggerContainer className="flex flex-col gap-3" staggerDelay={0.08}>
+                      <StaggerContainer
+                        className="flex flex-col gap-3"
+                        staggerDelay={0.08}
+                      >
                         {item.highlights.map((point, pIdx) => (
                           <StaggerItem key={pIdx}>
                             <div className="flex gap-2 text-sm md:text-base text-warm-800/70 leading-relaxed">
-                              <span className="text-coral-400 mt-0.5 shrink-0">&#9657;</span>
+                              <span className="text-coral-400 mt-0.5 shrink-0">
+                                &#9657;
+                              </span>
                               <span>{point}</span>
                             </div>
                           </StaggerItem>
